@@ -1,0 +1,19 @@
+### TESTE DE API
+GET http://localhost:3003/ping
+
+### PRODUTOS
+GET http://localhost:3003/product?page=1
+
+### PUXA CLIENTE
+GET http://localhost:3003/orderClient?name=
+
+### CRIAÇÃO DO CLIENTE
+POST http://localhost:3003/orderClient
+
+### CRIAÇÃO DO PEDIDO
+POST http://localhost:3003/orderProduct
+
+### ATUALIZAÇÃO DO ESTOQUE
+PUT http://localhost:3003/product
+
+

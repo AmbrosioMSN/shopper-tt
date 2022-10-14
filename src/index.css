@@ -1,0 +1,183 @@
+*{
+  font-family: "Montserrat", sans-serif;
+  transition: .2s;
+  box-sizing: border-box;
+}
+
+.btn {
+  background-color: transparent;
+  border: 1px solid #1AAB77;
+  color: #1AAB77;
+  margin-bottom: .5rem;
+}
+.btn:hover {
+  border: 1px solid transparent;
+  background-color: #1AAB77;
+  color: #fff;
+}
+.btn:focus{
+  box-shadow: none;
+}
+
+a{
+  text-decoration: none;
+  color: #000;
+}
+a:hover{
+  color: #1AAB77;
+}
+
+
+/* HEADER */
+
+#header{
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+#header p {
+  margin-bottom: 0;
+}
+
+#logo-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#logo{
+  width: 3.5rem;
+  margin-right: 15px;
+}
+
+@media(max-width:375px){
+  #logo{
+    width: 3.5rem;
+    height: 3.7rem;
+  }
+  #logo-container h1{
+    font-size: 2rem;
+  }
+  #header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #header p{
+    display: none;
+  }
+}
+
+.btn-close{
+  border: 0;
+  background-color: transparent;
+}
+
+.btn-login{
+  padding: .5rem;
+  border: 1px solid #1AAB77;
+  background-color: transparent;
+  border-radius: 5px;
+  color: #1AAB77;
+}
+
+.btn-login:hover{
+  border: 1px solid transparent;
+  color: #fff;
+  background-color: #1AAB77;
+}
+
+.sub {
+  color: #1AAB77;
+  font-weight: 900;
+}
+
+
+/*    NAVBAR     */
+
+#navbar{
+  padding: .5rem;
+  margin: .5rem auto;
+  text-align: center;
+}
+
+#navbar a {
+  width: 100px;
+  font-weight: 500;
+}
+
+
+.qty-info{
+  position: absolute;
+  top: 125px;
+  /* border-left: 1px solid #1AAB77; */
+  color: #1AAB77;
+  padding: 2px 5px;
+  font-weight: 900;
+}
+
+@media(max-width:375px){
+  #navbar a {
+    width: 90px;
+  }
+  .qty-info {
+    top: 105px;
+  }
+}
+
+@media(max-width:325px){
+  .qty-info {
+    top: 130px;
+  }
+}
+
+/*     PAGINAÇÃO      */
+#paginacao {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination li a{
+  color: #1AAB77;
+  border: 1px solid #1AAB77;
+}
+
+.pagination li a:hover{
+  background-color: #1AAB77;
+  color: #fff;
+}
+
+.pagination li a:focus{
+  background-color: #1AAB77;
+  color: #fff;
+}
+
+/*     FOOTER      */
+footer {
+  margin-top: 50px;
+  text-align: center;
+}
+
+
+
+.list {
+  margin-top: 1rem;
+  color: rgb(154, 147, 147);
+}
+
+.list a {
+  color: rgb(154, 147, 147);
+}
+
+.iSocial i{
+  font-size: 2rem;
+  margin: auto .5rem;
+  padding: .5rem;
+}
+
+.iSocial i:hover{
+  font-size: 2.3rem;
+  color: #1AAB77;
+}
