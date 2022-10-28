@@ -45,10 +45,11 @@ function UserRegistration() {
       .post("http://localhost:3003/orderClient", body)
       .then((resp) => {
         toast.success("Pedido criado com sucesso!");
-        idOrder = resp.data.IdOrder
+        idOrder = resp.data.IdOrder;
       })
       .catch((err) => {
-        toast.info("Cliente Já possui cadastro");
+        // toast.info("Cliente Já possui cadastro");
+        toast.info(err.message);
         return;
       });
 
