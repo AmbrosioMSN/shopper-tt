@@ -3,7 +3,7 @@ export class Product {
     private id: number,
     private name: string,
     private price: string,
-    private qty_stock: number
+    private stock_qty: number
   ) {}
 
   public getId(): number {
@@ -15,7 +15,7 @@ export class Product {
   public getPrice(): string {
     return this.price
   }
-  public getQty(): number {
-    return this.qty_stock
+  public getStockQty(): number {
+    return this.stock_qty
   }
 }

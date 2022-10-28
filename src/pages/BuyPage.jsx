@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -12,16 +12,33 @@ import "../pages.css";
 function BuyPage() {
   const [page, setPage] = useState(1);
 
+  const local = () => {
+    const check = localStorage.getItem("productCart");
+    if (check === null) {
+      const productCart = []
+      localStorage.setItem("productCart",JSON.stringify(productCart))
+    }else {
+      return
+    }
+  };
+
+  useEffect(()=>{
+    local()
+  },[])
 
   const HandlePages = (numPage) => {
     setPage(numPage)
   };
 
+  const HandleUpdate = (url) => {
+    return;
+  }
+
   return (
     <>
       <div className="container-fluid">
         <Header />
-        <Navbar />
+        <Navbar HandleUpdate={HandleUpdate}/>
         <div className="container" id="product-container">
           <hr />
           <div className="row gx-md-4 d-flex" id="imageItems">

@@ -1,11 +1,9 @@
 export class OrderProduct {
   constructor(
     private id: number,
-    private id_product: number,
-    private name_product: string,
-    private name_client: string,
-    private price_product: string,
-    private delivery_date: Date,
+    private product_id: number,
+    private order_id: number,
+    private product_price: string,
     private qty: number
   ) {}
 
@@ -13,19 +11,13 @@ export class OrderProduct {
     return this.id
   }
   public getIdProduct():number{
-    return this.id_product
+    return this.product_id
   }
-  public getNameProduct(): string {
-    return this.name_product
-  }
-  public getNameClient(): string {
-    return this.name_client
+  public getOrderId(): number{
+    return this.order_id
   }
   public getPriceProduct(): string {
-    return this.price_product
-  }
-  public getDate(): Date {
-    return this.delivery_date
+    return this.product_price
   }
   public getQty(): number {
     return this.qty

@@ -5,9 +5,9 @@ import { OrderProduct } from "../models/OrderProduct";
 export const createOrderProduct = async (req:Request, res:Response) => {
   let errorCode = 400;
   try {
-    const { id_product,name_client,name_product,price,date,qty } = req.body
+    const { product_id,order_id,product_price,qty } = req.body
 
-    if (!id_product || !name_client || !name_product || !price || !date || !qty) {
+    if (!product_id || !order_id || !product_price || !qty) {
       errorCode = 422
       throw new Error("Passe as requisições corretamente");
     }
@@ -15,11 +15,9 @@ export const createOrderProduct = async (req:Request, res:Response) => {
 
     const newOrder = new OrderProduct(
       Math.floor(Math.random() * 100),
-      id_product,
-      name_product,
-      name_client,
-      price,
-      date,
+      product_id,
+      order_id,
+      product_price,
       qty
     );
 

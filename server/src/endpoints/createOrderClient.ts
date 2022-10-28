@@ -12,18 +12,18 @@ export const createOrderClient = async (req:Request, res:Response) => {
       throw new Error("Passe as requisições corretamente");
     }
 
-    // const data_nasc_americana = date.split("/").reverse().join("-")
+    const id = Math.floor(Math.random() * 100)
 
-    const newClient = new Orders(
-      Math.floor(Math.random() * 100),
+    const newOrder = new Orders(
+      id,
       name,
       date
     )
 
     const orderDataBase = new OrderDatabase();
-    await orderDataBase.createOrder(newClient)
+    await orderDataBase.createOrder(newOrder)
 
-    res.status(201).send("Cliente registrado com sucesso!")
+    res.status(201).send({ Resultado:"Pedido registrado com sucesso!", IdOrder:id })
   } catch (error) {
     res.status(errorCode).send({
       message:error.message

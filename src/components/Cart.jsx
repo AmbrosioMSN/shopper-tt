@@ -34,6 +34,9 @@ function Cart(props) {
         .shift();
 
       props.setCart(updateCart, (newQty.qty = qty_stock));
+    }else if(e <= 0){
+      handleDelete(id)
+      getCart()
     } else {
       const updateCart = [...props.cart];
 
@@ -70,7 +73,7 @@ function Cart(props) {
                       type="number"
                       id={prod.id_product}
                       className="qtyProductCart"
-                      min="1"
+                      min="0"
                       onBlur={(e) =>
                         HandleSubmitProduct(
                           e.target.value,

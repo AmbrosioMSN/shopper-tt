@@ -8,14 +8,14 @@ export class OrderDatabase extends BaseDatabase {
     await BaseDatabase.connection(OrderDatabase.TABLE_ORDER)
     .insert({
       id: order.getId(),
-      name: order.getName(),
+      client_name: order.getClientName(),
       delivery_date: order.getDate(),
     })
   }
 
-  public async getOrderClient(id: number){
+  public async getOrderClient(name: string){
     const result = await BaseDatabase.connection(OrderDatabase.TABLE_ORDER)
-    .where("name", "=", id)
+    .where("client_name", "=", name)
     return result
   }
 }

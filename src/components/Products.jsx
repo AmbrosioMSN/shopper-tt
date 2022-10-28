@@ -77,7 +77,7 @@ function Products({ page }) {
     <>
       {productList.length > 0 ? (
         productList.map((prod) => {
-          if (prod.qty_stock > 0) {
+          if (prod.stock_qty > 0) {
             return (
               <form className="col-xs-6 col-md-6" key={prod.id}>
                 <img src="https://via.placeholder.com/300" alt="" />
@@ -86,7 +86,7 @@ function Products({ page }) {
                   Valor: <strong>R$ {prod.price}</strong>
                 </p>
                 <p>
-                  Em Estoque: <strong>{prod.qty_stock}</strong>
+                  Em Estoque: <strong>{prod.stock_qty}</strong>
                 </p>
                 <div className="d-flex justify-content-center mb-3">
                   <div className="m-2">
@@ -96,7 +96,7 @@ function Products({ page }) {
                       className="qtyProduct"
                       min="1"
                       defaultValue={1}
-                      max={prod.qty_stock}
+                      max={prod.stock_qty}
                       onChange={(e) => setQtyProduct(Number(e.target.value))}
                     />
                   </div>
@@ -110,10 +110,10 @@ function Products({ page }) {
                       prod.id,
                       prod.name,
                       prod.price,
-                      prod.qty_stock
+                      prod.stock_qty
                     )
                   }
-                  value="Comprar"
+                  value="Adicionar ao Carrinho"
                 />
               </form>
             );

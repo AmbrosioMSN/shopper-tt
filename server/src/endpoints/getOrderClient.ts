@@ -4,7 +4,7 @@ import { OrderDatabase } from "../database/OrderDatabase";
 export const getOrderClient = async (req:Request, res:Response) => {
   let errorCode = 400;
   try {
-    const name = Number(req.query.name)
+    const name = String(req.query.name) 
 
     if (!name) {
       errorCode = 422

@@ -32,40 +32,47 @@ function RequestPage() {
   // ATUALIZAR CARRINHO
   const navigate = useNavigate();
   const HandleUpdate = (url) => {
-    for (let i = 0; i < cart.length; i++) {
-      const body = {
-        id_product: Number(cart[i].id_product),
-        name_product: cart[i].name_product,
-        price_product: cart[i].price_product,
-        qty: Number(cart[i].qty),
-        qty_stock: Number(cart[i].qty_stock),
-      };
+    if (url === "none") {
+      return;
+    } else {
+      for (let i = 0; i < cart.length; i++) {
+        const body = {
+          id_product: Number(cart[i].id_product),
+          name_product: cart[i].name_product,
+          price_product: cart[i].price_product,
+          qty: Number(cart[i].qty),
+          qty_stock: Number(cart[i].qty_stock),
+        };
 
-      if (cart[i].qty < cart[i].qty_stock) {
-        const check = cart.indexOf(cart[i]);
-        cart.splice(check, 1);
+        if (cart[i].qty < cart[i].qty_stock) {
+          const check = cart.indexOf(cart[i]);
+          cart.splice(check, 1);
 
-        cart.push(body);
-        localStorage.setItem("productCart", JSON.stringify(cart));
+          cart.push(body);
+          localStorage.setItem("productCart", JSON.stringify(cart));
+        }
       }
+      if (url === "/UserRegistration" && cart.length === 0) {
+        toast.info("Não há nenhum item para prosseguir com a compra");
+        return;
+      }
+      return navigate(url);
     }
-    if (url === "/UserRegistration" && cart.length === 0) {
-      toast.info("Não há nenhum item para prosseguir com a compra");
-      return
-    }
-    return navigate(url)
   };
 
   return (
     <>
       <div className="container-fluid">
         <Header />
-        <Navbar HandleUpdate={HandleUpdate}/>
+        <Navbar HandleUpdate={HandleUpdate} />
         <div className="container" id="request-container">
           <hr />
           <div className="col-12 d-flex" id="process">
             <div className="row">
-              <div className="col-4 d-flex align-items-center justify-content-center" id="active">
+              <div
+                className="col-4 d-flex align-items-center justify-content-center"
+                id="active"
+              >
                 <i className="bi bi-1-circle"></i>
                 <p>Carrinho</p>
               </div>
@@ -87,10 +94,7 @@ function RequestPage() {
             </div>
           </div>
 
-          <Cart
-            cart={cart}
-            setCart={setCart}
-          />
+          <Cart cart={cart} setCart={setCart} />
 
           <div className="row">
             <div className="col-12 d-flex components-request">
@@ -98,7 +102,9 @@ function RequestPage() {
                 <h3 className="mb-4">Resumo</h3>
                 <ul className="list-unstyled">
                   <li className="m-3 pt-3">
-                    <h5>Total Da Compra: <strong>R$ {somaTotal(result)}</strong></h5> 
+                    <h5>
+                      Total Da Compra: <strong>R$ {somaTotal(result)}</strong>
+                    </h5>
                   </li>
                   <hr />
                 </ul>
